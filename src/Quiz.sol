@@ -12,7 +12,7 @@ contract Quiz{
       uint max_bet;
    }
     
-    mapping(uint256 => mapping(address => uint256)) public bets;
+    mapping(address => uint256)[] public bets;  
     mapping(address => uint256) public winner;
     uint public vault_balance;
     address private owner;
@@ -23,11 +23,12 @@ contract Quiz{
         Quiz_item memory q;
         q.id = 1;
         q.question = "1+1=?";
-        q.answer = "";
+        q.answer = "2";
         q.min_bet = 1 ether;
         q.max_bet = 2 ether;
         addQuiz(q);
-        quiz_answer[0] = "2";
+        bets.push();
+        //quiz_answer[0] = "2";
     }
 
     // 아무나 퀴즈를 생성할 수 없다.
